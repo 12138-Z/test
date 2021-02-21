@@ -19,7 +19,7 @@
           console.log('There has been a problem with your fetch operation:' + e.message);
         })
         .finally(() => {
-          console.log("fetch attempt for '${url}' finished.");
+          console.log(`fetch attempt for "${url}" finished.`);
         });
       }
 
@@ -27,7 +27,7 @@
       let tea = fetchAndDecode('tea.jpg', 'blob');
       let description = fetchAndDecode('description.txt', 'text');
       
-      promise.all([coffee, tea, description]).then(values => {
+      Promise.all([coffee, tea, description]).then(values => {
         console.log(values);
         let objectURL1 = URL.createObjectURL(values[0]);
         let objectURL2 = URL.createObjectURL(values[1]);
